@@ -7,6 +7,7 @@ const path = require('path');
 const yargs = require('yargs/yargs')
 const async = require("async");
 const { hideBin } = require('yargs/helpers')
+const validUrl = require('valid-url')
 
 yargs(hideBin(process.argv))
     .option('w', {
@@ -29,6 +30,14 @@ yargs(hideBin(process.argv))
         describe: 'Limited concurrent screenshot',
         demandOption: false,
         type: 'number'
+    })
+    .check((argv, options) => {
+        argv.urls.forEach((url) => {
+            if(!validUrl.isUri(url)) {
+                throw new Error(`Invalid URL: ${url}`);
+            }
+        });
+        return true;
     })
     .command('$0 <dest> <urls..>',
         'Take screenshot on multiple urls',
