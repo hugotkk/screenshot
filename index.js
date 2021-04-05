@@ -9,6 +9,20 @@ const async = require("async");
 const { hideBin } = require('yargs/helpers')
 
 yargs(hideBin(process.argv))
+    .option('w', {
+        alias: 'width',
+        default: 1024,
+        describe: 'Width of the screenshot',
+        demandOption: false,
+        type: 'number'
+    })
+    .option('h', {
+        alias: 'height',
+        default: 768,
+        describe: 'Height of the screenshot',
+        demandOption: false,
+        type: 'number'
+    })
     .option('l', {
         alias: 'limit',
         default: 5,
@@ -33,6 +47,8 @@ yargs(hideBin(process.argv))
             const limit = argv.limit;
             const basePath = argv.dest;
             const urls = argv.urls;
+            const width = argv.width;
+            const height = argv.width;
             if(!fs.existsSync(basePath)) {
                 fs.mkdirSync(basePath);
             }
@@ -41,6 +57,11 @@ yargs(hideBin(process.argv))
                 console.log(`Working on ${url}`);
                 var output = slug(url) + '.png';
                 const page = await browser.newPage();
+                await page.setViewport({
+                    width: width,
+                    height: height,
+                    deviceScaleFactor: 1,
+                });
                 await page.goto(url);
                 await page.screenshot({
                     path: path.join(basePath, output)
