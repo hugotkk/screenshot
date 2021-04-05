@@ -4,11 +4,11 @@
   "description": "Take screenshot on multiple website",
   "main": "index.js",
   "dependencies": {
-    "async": "^3.2.0",
-    "puppeteer": "^8.0.0",
-    "slug": "^4.0.3",
+    "async": "3.2.0",
+    "puppeteer": "8.0.0",
+    "slug": "4.0.3",
     "valid-url": "1.0.9",
-    "yargs": "^16.2.0"
+    "yargs": "16.2.0"
   },
   "devDependencies": {},
   "scripts": {
