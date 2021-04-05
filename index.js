@@ -16,7 +16,7 @@ yargs(hideBin(process.argv))
         demandOption: false,
         type: 'number'
     })
-    .command('$0 <dest> [urls..]',
+    .command('$0 <dest> <urls..>',
         'Take screenshot on multiple urls',
         () => {
         },
