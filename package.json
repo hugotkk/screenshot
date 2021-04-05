@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/hugotkk/screenshot/issues"
   },
-  "homepage": "https://github.com/hugotkk/screenshot#readme"
+  "homepage": "https://github.com/hugotkk/screenshot#readme",
+  "bin": {
+    "screenshot": "index.js"
+  }
 }
