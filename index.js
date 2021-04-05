@@ -8,14 +8,20 @@ const yargs = require('yargs/yargs')
 const async = require("async");
 const { hideBin } = require('yargs/helpers')
 
-const limit = 5;
-
 yargs(hideBin(process.argv))
+    .option('l', {
+        alias: 'limit',
+        default: 5,
+        describe: 'Limited concurrent screenshot',
+        demandOption: false,
+        type: 'number'
+    })
     .command('$0 <dest> [urls..]',
         'Take screenshot on multiple urls',
         () => {
         },
         async (argv) => {
+            const limit = argv.limit;
             basePath = argv.dest
             urls = argv.urls;
             if(!fs.existsSync(basePath)) {
