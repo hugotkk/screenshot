@@ -1,0 +1,29 @@
+{
+  "name": "screenshot",
+  "version": "1.0.0",
+  "description": "Take screenshot on multiple website",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^3.2.0",
+    "puppeteer": "^8.0.0",
+    "slug": "^4.0.3",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugotkk/screenshot.git"
+  },
+  "keywords": [
+    "screenshot"
+  ],
+  "author": "Hugo Tse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hugotkk/screenshot/issues"
+  },
+  "homepage": "https://github.com/hugotkk/screenshot#readme"
+}
