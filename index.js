@@ -64,7 +64,7 @@ yargs(hideBin(process.argv))
             const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
             async function takeScreenShot(url, callback) {
                 console.log(`Working on ${url}`);
-                var output = slug(url) + '.png';
+                var output = slug(url.replace(/http(s)?:\/\//, ''), '_') + '.png';
                 const page = await browser.newPage();
                 await page.setViewport({
                     width: width,
