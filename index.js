@@ -31,8 +31,8 @@ yargs(hideBin(process.argv))
         },
         async (argv) => {
             const limit = argv.limit;
-            basePath = argv.dest
-            urls = argv.urls;
+            const basePath = argv.dest;
+            const urls = argv.urls;
             if(!fs.existsSync(basePath)) {
                 fs.mkdirSync(basePath);
             }
