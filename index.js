@@ -18,7 +18,16 @@ yargs(hideBin(process.argv))
     })
     .command('$0 <dest> <urls..>',
         'Take screenshot on multiple urls',
-        () => {
+        (yargs) => {
+            yargs.positional('dest', {
+                describe: 'Path to save the screenshot',
+                type: 'string',
+                normalize: true,
+            });
+            yargs.positional('urls', {
+                describe: 'URLs to take screenshot: eg https://google.com',
+                type: 'string',
+            });
         },
         async (argv) => {
             const limit = argv.limit;
